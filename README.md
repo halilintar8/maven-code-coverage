@@ -1,4 +1,4 @@
-# Maven – JaCoCo code coverage example gh
+# Maven – JaCoCo code coverage example github
 Maven, JUnit 5 + JaCoCo example.
 
 Project Link - https://www.mkyong.com/maven/maven-jacoco-code-coverage-example/
