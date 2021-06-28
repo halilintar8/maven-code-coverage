@@ -13,14 +13,30 @@
 // }
 
 
-node {
-    // stage('Checkout') {
-    //     checkout scm
-    // }
+// node {
+//     // stage('Checkout') {
+//     //     checkout scm
+//     // }
 
-    stage('Clean Verify') {
-        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
-    }
+//     stage('Clean Verify') {
+//         sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+//     }
     
+// }
+
+pipeline {
+    agent any
+    tools { 
+      maven 'MAVEN_HOME' 
+      jdk 'JAVA_HOME' 
+    }
+    stages {
+      stage ('Build') {
+        steps {
+          sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
+        }
+      }
+
+    }
 }
 
