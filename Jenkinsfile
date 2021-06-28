@@ -18,7 +18,7 @@ node {
     // }
 
     stage('Clean Verify') {
-        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+        sh './mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
     }
     
 }
