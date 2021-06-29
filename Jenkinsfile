@@ -22,7 +22,7 @@
 //         sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
 //     }
     
-// }
+/// }
 
 pipeline {
     agent any
