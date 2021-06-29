@@ -34,22 +34,7 @@ pipeline {
       stage ('Build') {
         steps {
           // sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
-
-          withSonarQubeEnv('sonarcloud8') {
-            sh "mvn sonar:sonar --batch-mode --errors " +
-            // sh "./mvnw verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar "
-            "-pl ${context.env.TEST_MODULES} -am " +
-            "-Dsonar.projectKey=${Constants.SONARCLOUD_PROJECT_KEY} " +
-            "-Dsonar.organization=${Constants.SONARCLOUD_ORGANISATION} " +
-            "-Dsonar.verbose=true " +
-            "-Dsonar.host.url=${Constants.SONARCLOUD_URL} " +
-            "-Dsonar.login=${context.env.SONARCLOUD_TOKEN} " +
-            "-Dsonar.pullrequest.branch=${context.env.BRANCH_NAME} " +
-            "-Dsonar.pullrequest.base=${Constants.RELEASES_BRANCH} " +
-            "-Dsonar.pullrequest.key=${context.env.CHANGE_ID} "
-            
-}
-
+          sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
         }
       }
 
