@@ -34,7 +34,7 @@ pipeline {
       stage ('Build') {
         steps {
           // sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
-          sh 'mvn -Djacoco.skip -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+          sh 'mvn install'
         }
       }
 
